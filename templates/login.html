@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gateway Login</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="box">
+<h2>API Gateway Login</h2>
+<button onclick="login()">Login</button>
+<p id="token"></p>
+</div>
+
+<script>
+async function login(){
+let res = await fetch("/login",{method:"POST"})
+let data = await res.json()
+document.getElementById("token").innerText="Token: "+data.token
+}
+</script>
+
+</body>
+</html>
